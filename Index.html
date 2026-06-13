@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kosar Ashrafiyan — Web Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --blue: #3b82f6;
+    --blue-light: #60a5fa;
+    --blue-pale: #93c5fd;
+    --bg: #070b14;
+    --bg-card: rgba(15,23,42,0.85);
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    --border: rgba(59,130,246,0.15);
+    --border-hover: rgba(59,130,246,0.45);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text-primary);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 3rem;
+    background: rgba(7,11,20,0.88);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(59,130,246,0.1);
+  }
+  .nav-logo {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700; font-size: 1.3rem;
+    color: var(--blue); letter-spacing: 0.02em;
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2.2rem; list-style: none; }
+  .nav-links a {
+    color: var(--text-secondary); font-size: 0.85rem;
+    text-decoration: none; font-weight: 500;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--blue); }
+
+  /* SECTIONS */
+  .section {
+    max-width: 1080px; margin: 0 auto;
+    padding: 6rem 2.5rem 4rem;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh; display: flex; align-items: center;
+    padding-top: 8rem; padding-bottom: 4rem;
+    position: relative;
+  }
+  .hero-content { max-width: 680px; }
+  .hero-tag {
+    display: inline-block;
+    font-size: 0.75rem; font-weight: 600;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--blue);
+    background: rgba(59,130,246,0.1);
+    border: 1px solid rgba(59,130,246,0.25);
+    border-radius: 999px; padding: 0.35rem 1.1rem;
+    margin-bottom: 1.8rem;
+  }
+  h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2.8rem, 6vw, 4.4rem);
+    font-weight: 700; line-height: 1.08;
+    color: var(--text-primary); letter-spacing: -0.02em;
+    margin-bottom: 1.1rem;
+  }
+  h1 span {
+    background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 55%, #93c5fd 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero-sub {
+    font-size: 1.08rem; color: var(--text-secondary);
+    line-height: 1.8; max-width: 520px; margin-bottom: 2.5rem;
+  }
+  .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--blue); color: #fff;
+    padding: 0.82rem 1.8rem; border-radius: 8px;
+    font-weight: 600; font-size: 0.9rem;
+    text-decoration: none; transition: background 0.2s, transform 0.15s;
+    border: none; cursor: pointer;
+  }
+  .btn-primary:hover { background: #2563eb; transform: translateY(-1px); }
+
+  .btn-outline {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    border: 1px solid rgba(59,130,246,0.4); color: var(--blue-pale);
+    padding: 0.82rem 1.8rem; border-radius: 8px;
+    font-weight: 600; font-size: 0.9rem;
+    text-decoration: none; background: transparent;
+    transition: all 0.2s;
+  }
+  .btn-outline:hover {
+    border-color: var(--blue);
+    background: rgba(59,130,246,0.08);
+  }
+
+  .scroll-hint {
+    position: absolute; bottom: 2.5rem; left: 0;
+    display: flex; flex-direction: column; align-items: flex-start;
+    gap: 0.5rem; color: var(--text-muted); font-size: 0.72rem;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    padding-left: 2.5rem;
+  }
+  .scroll-line {
+    width: 1px; height: 38px;
+    background: linear-gradient(to bottom, var(--blue), transparent);
+  }
+
+  /* SECTION HEADER */
+  .section-eyebrow {
+    font-size: 0.73rem; font-weight: 600;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--blue); margin-bottom: 0.5rem;
+  }
+  h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    font-weight: 700; color: var(--text-primary);
+    margin-bottom: 0.9rem;
+  }
+  .divider {
+    width: 44px; height: 3px;
+    background: var(--blue); border-radius: 2px;
+    margin-bottom: 2.8rem;
+  }
+
+  /* ABOUT */
+  .about-grid {
+    display: grid; grid-template-columns: 1.2fr 1fr;
+    gap: 4rem; align-items: center;
+  }
+  .about-text p {
+    color: var(--text-secondary);
+    line-height: 1.85; font-size: 0.98rem;
+    margin-bottom: 1.1rem;
+  }
+  .about-stats {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+  }
+  .stat-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px; padding: 1.4rem;
+  }
+  .stat-num {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.9rem; font-weight: 700; color: var(--blue);
+  }
+  .stat-label {
+    font-size: 0.8rem; color: var(--text-muted);
+    margin-top: 0.2rem; font-weight: 500;
+  }
+
+  /* SKILLS */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+    gap: 1rem;
+  }
+  .skill-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px; padding: 1.1rem 1.3rem;
+    display: flex; align-items: center; gap: 0.85rem;
+    transition: border-color 0.2s, transform 0.15s;
+  }
+  .skill-card:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-2px);
+  }
+  .skill-icon {
+    width: 36px; height: 36px;
+    background: rgba(59,130,246,0.12);
+    border-radius: 8px; display: flex;
+    align-items: center; justify-content: center;
+    color: var(--blue); font-size: 1.1rem; flex-shrink: 0;
+  }
+  .skill-name {
+    font-size: 0.88rem; font-weight: 500; color: var(--text-primary);
+  }
+
+  /* CONTACT */
+  .contact-note {
+    color: var(--text-secondary); font-size: 0.98rem;
+    line-height: 1.7; margin-bottom: 2.5rem; max-width: 500px;
+  }
+  .contact-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.1rem;
+  }
+  .contact-card {
+    display: flex; align-items: center; gap: 1rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px; padding: 1.3rem 1.6rem;
+    text-decoration: none; color: var(--text-primary);
+    transition: border-color 0.2s, transform 0.15s, background 0.2s;
+  }
+  .contact-card:hover {
+    border-color: var(--border-hover);
+    background: rgba(59,130,246,0.06);
+    transform: translateY(-2px);
+  }
+  .contact-icon {
+    width: 46px; height: 46px;
+    background: rgba(59,130,246,0.13);
+    border-radius: 10px; display: flex;
+    align-items: center; justify-content: center;
+    color: var(--blue); font-size: 1.35rem; flex-shrink: 0;
+  }
+  .contact-label {
+    font-size: 0.72rem; color: var(--text-muted);
+    text-transform: uppercase; letter-spacing: 0.09em;
+    margin-bottom: 0.22rem;
+  }
+  .contact-val {
+    font-size: 0.9rem; font-weight: 500; color: var(--text-primary);
+  }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid rgba(59,130,246,0.08);
+    padding: 2rem 3rem;
+    text-align: center;
+    color: var(--text-muted); font-size: 0.8rem;
+  }
+
+  /* MOBILE */
+  @media (max-width: 700px) {
+    nav { padding: 1rem 1.4rem; }
+    .nav-links { gap: 1.2rem; }
+    .section { padding: 5rem 1.4rem 3rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .about-stats { grid-template-columns: 1fr 1fr; }
+    .scroll-hint { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#hero">KA.</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="section hero" id="hero">
+  <div class="hero-content">
+    <div class="hero-tag">Available for freelance</div>
+    <h1>Hi, I'm <span>Kosar Ashrafiyan</span></h1>
+    <p class="hero-sub">
+      A passionate web designer crafting clean, functional, and visually compelling digital experiences — where design meets code.
+    </p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn-primary">
+        <i class="ti ti-send" aria-hidden="true"></i> Get in touch
+      </a>
+      <a href="#skills" class="btn-outline">
+        <i class="ti ti-code" aria-hidden="true"></i> My skills
+      </a>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    scroll
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div class="section" id="about">
+  <div class="section-eyebrow">Who I am</div>
+  <h2>About me</h2>
+  <div class="divider"></div>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>
+        I'm Kosar Ashrafiyan, a web designer and front-end developer with a deep passion for building digital products that are both beautiful and purposeful.
+      </p>
+      <p>
+        I combine solid technical skills in JavaScript, HTML/CSS, and Node.js with a strong eye for UI/UX design — creating seamless experiences from concept to deployment.
+      </p>
+      <p>
+        I also work with WordPress, SEO, and PHP, giving me a full-stack perspective that lets me bring complete digital solutions to life.
+      </p>
+    </div>
+    <div class="about-stats">
+      <div class="stat-card">
+        <div class="stat-num">8+</div>
+        <div class="stat-label">Skills mastered</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">UI</div>
+        <div class="stat-label">Design focused</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">Full</div>
+        <div class="stat-label">Stack perspective</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">SEO</div>
+        <div class="stat-label">Optimized builds</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SKILLS -->
+<div class="section" id="skills" style="padding-top: 2rem;">
+  <div class="section-eyebrow">What I work with</div>
+  <h2>Skills</h2>
+  <div class="divider"></div>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-icon"><i class="ti ti-brand-javascript" aria-hidden="true"></i></div>
+      <div class="skill-name">JavaScript</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon"><i class="ti ti-brand-html5" aria-hidden="true"></i></div>
+      <div class="skill-name">HTML & CSS</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon"><i class="ti ti-brand-nodejs" aria-hidden="true"></i></div>
+      <div class="skill-name">Node.js</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon"><i class="ti ti-brand-php" aria-hidden="true"></i></div>
+      <div class="skill-name">PHP</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon"><i class="ti ti-brand-wordpress" aria-hidden="true"></i></div>
+      <div class="skill-name">WordPress</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon"><i class="ti ti-search" aria-hidden="true"></i></div>
+      <div class="skill-name">SEO</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon"><i class="ti ti-layout-2" aria-hidden="true"></i></div>
+      <div class="skill-name">UI & UX</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon"><i class="ti ti-camera" aria-hidden="true"></i></div>
+      <div class="skill-name">Photography</div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="section" id="contact" style="padding-top: 2rem; padding-bottom: 8rem;">
+  <div class="section-eyebrow">Let's connect</div>
+  <h2>Contact</h2>
+  <div class="divider"></div>
+  <p class="contact-note">
+    Have a project in mind or just want to say hello? Reach out through any of the channels below.
+  </p>
+  <div class="contact-cards">
+    <a href="mailto:k22022250@gmail.com" class="contact-card">
+      <div class="contact-icon"><i class="ti ti-mail" aria-hidden="true"></i></div>
+      <div>
+        <div class="contact-label">Email</div>
+        <div class="contact-val">k22022250@gmail.com</div>
+      </div>
+    </a>
+    <a href="https://wa.me/989035286178" target="_blank" rel="noopener" class="contact-card">
+      <div class="contact-icon"><i class="ti ti-brand-whatsapp" aria-hidden="true"></i></div>
+      <div>
+        <div class="contact-label">WhatsApp</div>
+        <div class="contact-val">+98 903 528 6178</div>
+      </div>
+    </a>
+    <a href="https://github.com/k22022250-beep" target="_blank" rel="noopener" class="contact-card">
+      <div class="contact-icon"><i class="ti ti-brand-github" aria-hidden="true"></i></div>
+      <div>
+        <div class="contact-label">GitHub</div>
+        <div class="contact-val">k22022250-beep</div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<footer>
+  © 2025 Kosar Ashrafiyan — Designed & built with care.
+</footer>
+
+</body>
+</html>
