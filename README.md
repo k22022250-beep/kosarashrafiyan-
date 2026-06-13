@@ -1,2 +1,2 @@
 # kosarashrafiyan-
-My first project in github .
+Web Designer & Front-End Developer | JavaScript · HTML/CSS · UI/UX · WordPress · SEO 
